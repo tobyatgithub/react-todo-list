@@ -7,8 +7,8 @@ import { useState } from "react";
 function App() {
   const [taskList, setTaskList] = useState([
     { id: "001", text: "Your first task", done: true },
-    { id: "002", text: "Your second task", done: true },
-    { id: "003", text: "Your third task", done: true },
+    { id: "002", text: "Your second task", done: false },
+    { id: "003", text: "Your third task", done: false },
   ]);
 
   return (
