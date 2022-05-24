@@ -1,12 +1,11 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import Item from "../Item/index";
 
-export default class List extends Component {
-  render() {
-    return (
-      <ul className="todo-main">
-        <Item elements={[{ text: "abs" }]} />
-      </ul>
-    );
-  }
+export default function List() {
+  const [taskList, setTaskList] = useState([{ text: "abs" }]);
+  return (
+    <ul className="todo-main">
+      <Item taskList={taskList} setTaskList={setTaskList} />
+    </ul>
+  );
 }

@@ -18,14 +18,13 @@
 
 import React from "react";
 
-export default function Item({ elements }) {
-  console.log("toby here", elements);
-  return elements.map((element) => {
+export default function Item({ taskList, setTaskList }) {
+  return taskList.map((task) => {
     return (
       <li>
         <label>
           <input type="checkbox"></input>
-          <span>{element.text}</span>
+          <span>{task.text}</span>
         </label>
         <button className="btn btn-danger" style={{ display: "none" }}>
           Delete
