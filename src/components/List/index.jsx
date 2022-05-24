@@ -6,7 +6,7 @@ export default function List({ taskList }) {
   return (
     <ul className="todo-main">
       {taskList.map((task) => {
-        return <Item task={task} />;
+        return <Item key={task.id} task={task} />;
       })}
     </ul>
   );
