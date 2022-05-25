@@ -17,7 +17,9 @@ export default function Footer({
       <label>
         <input
           type="checkbox"
-          checked={totalCount === numCompletedTask ? true : false}
+          checked={
+            totalCount === numCompletedTask && totalCount !== 0 ? true : false
+          }
           onChange={(event) => updateAllTasks(event.target.checked)}
         ></input>
       </label>
