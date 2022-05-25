@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
+
 export default function Header({ taskList, setTaskList }) {
   const handleSubmit = (event) => {
+    const { target } = event;
+
     // if ENTER clicked
     if (event.keyCode === 13) {
       const newTask = {
-        id: nanoid(), //TODO: hmm need to fix id collision
-        text: event.target.value,
+        id: nanoid(),
+        text: target.value,
         done: false,
       };
       const newTaskList = [newTask, ...taskList];
-      if (event.target.value.trim() !== "") {
+
+      if (target.value.trim() !== "") {
         setTaskList(newTaskList);
-        event.target.value = "";
+        target.value = "";
         // reset the search box
       }
     }
