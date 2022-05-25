@@ -1,4 +1,5 @@
-import React, { useState, Component } from "react";
+import "./index.css";
+import React from "react";
 import Item from "../Item/index";
 
 export default function List({ taskList, updateTask, deleteTask }) {

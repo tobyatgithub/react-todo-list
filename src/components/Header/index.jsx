@@ -1,3 +1,4 @@
+import "./index.css";
 import React, { Component } from "react";
 import { nanoid } from "nanoid";
 
@@ -26,7 +27,7 @@ export default function Header({ taskList, setTaskList }) {
     <div className="todo-header">
       <input
         type="text"
-        placeholder="type in a task"
+        placeholder="Type in a new task. Hit Enter to add."
         onKeyUp={handleSubmit}
       ></input>
     </div>

@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import "./index.css";
+import React from "react";
 
 export default function Footer({
   taskList,
@@ -13,7 +14,7 @@ export default function Footer({
   const totalCount = taskList.length;
 
   return (
-    <div>
+    <div className="todo-footer">
       <label>
         <input
           type="checkbox"

@@ -1,3 +1,4 @@
+import "./index.css";
 import React, { useState } from "react";
 
 export default function Item({ task, updateTask, deleteTask }) {
@@ -12,6 +13,7 @@ export default function Item({ task, updateTask, deleteTask }) {
 
   return (
     <li
+      className="todo-item"
       style={{ backgroundColor: isMouseOver ? "#ddd" : "white" }}
       onMouseOver={handleMouse(true)}
       onMouseLeave={handleMouse(false)}
@@ -26,8 +28,8 @@ export default function Item({ task, updateTask, deleteTask }) {
         <span>{task.text}</span>
       </label>
       <button
-        onClick={() => deleteTask(task.id)}
         className="btn btn-danger"
+        onClick={() => deleteTask(task.id)}
         style={{ display: isMouseOver ? "inline" : "none" }}
       >
         Delete

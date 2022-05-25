@@ -48,19 +48,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>To Do List</h1>
-      <Header taskList={taskList} setTaskList={setTaskList} />
-      <List
-        taskList={taskList}
-        updateTask={updateTask}
-        deleteTask={deleteTask}
-      />
-      <Footer
-        taskList={taskList}
-        updateAllTasks={updateAllTasks}
-        deleteAllSelectedTasks={deleteAllSelectedTasks}
-      />
+    <div className="todo-container">
+      <div className="todo-wrap">
+        <h1>To Do List</h1>
+        <Header taskList={taskList} setTaskList={setTaskList} />
+        <List
+          taskList={taskList}
+          updateTask={updateTask}
+          deleteTask={deleteTask}
+        />
+        <Footer
+          taskList={taskList}
+          updateAllTasks={updateAllTasks}
+          deleteAllSelectedTasks={deleteAllSelectedTasks}
+        />
+      </div>
     </div>
   );
 }
