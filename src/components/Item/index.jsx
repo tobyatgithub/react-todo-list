@@ -1,23 +1,25 @@
 import React, { useState } from "react";
 
 export default function Item({ task }) {
-  const [shallDisplay, setShallDisplay] = useState("none");
+  const [isMouseOver, setIsMouseOver] = useState(false);
 
   const handleCheckbox = () => {
     task.done = !task.done;
     console.log("clicked!", task);
   };
 
-  const handleFocus = () => {
-    setShallDisplay("inline");
-  };
-
-  const handleBlur = () => {
-    setShallDisplay("none");
+  const handleMouse = (flag) => {
+    return () => {
+      setIsMouseOver(flag);
+    };
   };
 
   return (
-    <li onMouseOver={handleFocus} onMouseLeave={handleBlur}>
+    <li
+      style={{ backgroundColor: isMouseOver ? "#ddd" : "white" }}
+      onMouseOver={handleMouse(true)}
+      onMouseLeave={handleMouse(false)}
+    >
       <label>
         <input
           type="checkbox"
@@ -26,7 +28,10 @@ export default function Item({ task }) {
         ></input>
         <span>{task.text}</span>
       </label>
-      <button className="btn btn-danger" style={{ display: shallDisplay }}>
+      <button
+        className="btn btn-danger"
+        style={{ display: isMouseOver ? "inline" : "none" }}
+      >
         Delete
       </button>
     </li>
