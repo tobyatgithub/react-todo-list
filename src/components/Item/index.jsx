@@ -1,14 +1,10 @@
 import React, { useState } from "react";
 
-export default function Item({ task }) {
+export default function Item({ task, updateTask }) {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
-  const handleCheckbox = () => {
-    task.done = !task.done;
-    console.log("clicked!", task);
-  };
-
   const handleMouse = (flag) => {
+    // need to use higher order function to allow parameter
     return () => {
       setIsMouseOver(flag);
     };
@@ -24,7 +20,7 @@ export default function Item({ task }) {
         <input
           type="checkbox"
           defaultChecked={task.done}
-          onChange={handleCheckbox}
+          onChange={() => updateTask(task.id, !task.done)}
         ></input>
         <span>{task.text}</span>
       </label>

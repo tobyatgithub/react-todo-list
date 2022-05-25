@@ -11,11 +11,20 @@ function App() {
     { id: "003", text: "Your third task", done: false },
   ]);
 
+  const updateTask = (id, done) => {
+    console.log("receiving,", id, done);
+    const newTaskList = taskList.map((task) => {
+      if (task.id === id) return { ...task, done: done };
+      else return task;
+    });
+    setTaskList(newTaskList);
+  };
+
   return (
     <div className="App">
       <h1>To Do List</h1>
       <Header taskList={taskList} setTaskList={setTaskList} />
-      <List taskList={taskList} />
+      <List taskList={taskList} updateTask={updateTask} />
       <Footer />
     </div>
   );
