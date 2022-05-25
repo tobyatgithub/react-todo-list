@@ -31,7 +31,12 @@ function App() {
     }
   };
 
-  const updateAllTasks = () => {};
+  const updateAllTasks = (done) => {
+    const newTaskList = taskList.map((task) => {
+      return { ...task, done };
+    });
+    setTaskList(newTaskList);
+  };
   const deleteAllSelectedTasks = () => {};
 
   return (
@@ -44,6 +49,7 @@ function App() {
         deleteTask={deleteTask}
       />
       <Footer
+        taskList={taskList}
         updateAllTasks={updateAllTasks}
         deleteAllSelectedTasks={deleteAllSelectedTasks}
       />

@@ -1,12 +1,29 @@
 import React, { Component } from "react";
 
-export default function Footer() {
+export default function Footer({
+  taskList,
+  updateAllTasks,
+  deleteAllSelectedTasks,
+}) {
+  const numCompletedTask = taskList.reduce((total, task) => {
+    if (task.done === true) return total + 1;
+    else return total;
+  }, 0);
+
+  const totalCount = taskList.length;
+
   return (
     <div>
       <label>
-        <input type="checkbox"></input>
+        <input
+          type="checkbox"
+          checked={totalCount === numCompletedTask ? true : false}
+          onChange={(event) => updateAllTasks(event.target.checked)}
+        ></input>
       </label>
-      <span>Currently completed 0/0 tasks</span>
+      <span>
+        Currently completed {numCompletedTask}/{totalCount} tasks
+      </span>
       <button className="btn btn-danger">Complete all selected tasks</button>
     </div>
   );

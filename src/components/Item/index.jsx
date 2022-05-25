@@ -19,7 +19,7 @@ export default function Item({ task, updateTask, deleteTask }) {
       <label>
         <input
           type="checkbox"
-          defaultChecked={task.done}
+          checked={task.done}
           // onChange={() => updateTask(task.id, !task.done)}
           onChange={(event) => updateTask(task.id, event.target.checked)}
         ></input>
