@@ -37,7 +37,15 @@ function App() {
     });
     setTaskList(newTaskList);
   };
-  const deleteAllSelectedTasks = () => {};
+
+  const deleteAllSelectedTasks = () => {
+    if (window.confirm("Delete all selected tasks?")) {
+      const newTaskList = taskList.filter((task) => {
+        return task.done !== true;
+      });
+      setTaskList(newTaskList);
+    }
+  };
 
   return (
     <div className="App">

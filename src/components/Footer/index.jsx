@@ -26,7 +26,9 @@ export default function Footer({
       <span>
         Currently completed {numCompletedTask}/{totalCount} tasks
       </span>
-      <button className="btn btn-danger">Complete all selected tasks</button>
+      <button onClick={deleteAllSelectedTasks} className="btn btn-danger">
+        Complete all selected tasks
+      </button>
     </div>
   );
 }
