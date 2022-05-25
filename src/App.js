@@ -11,6 +11,8 @@ function App() {
     { id: "003", text: "Your third task", done: false },
   ]);
 
+  //!Note!: the state manipulator shall be at the same place as the state,
+  // such as setTaskList, and updateTask = 状态在哪里 操作状态的方法就在哪里
   const updateTask = (id, done) => {
     console.log("receiving,", id, done);
     const newTaskList = taskList.map((task) => {
@@ -20,11 +22,23 @@ function App() {
     setTaskList(newTaskList);
   };
 
+  const deleteTask = (id) => {
+    const newTaskList = taskList.filter((task) => {
+      return task.id !== id;
+    });
+    setTaskList(newTaskList);
+    console.log(newTaskList);
+  };
+
   return (
     <div className="App">
       <h1>To Do List</h1>
       <Header taskList={taskList} setTaskList={setTaskList} />
-      <List taskList={taskList} updateTask={updateTask} />
+      <List
+        taskList={taskList}
+        updateTask={updateTask}
+        deleteTask={deleteTask}
+      />
       <Footer />
     </div>
   );

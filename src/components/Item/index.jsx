@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Item({ task, updateTask }) {
+export default function Item({ task, updateTask, deleteTask }) {
   const [isMouseOver, setIsMouseOver] = useState(false);
 
   const handleMouse = (flag) => {
@@ -26,6 +26,7 @@ export default function Item({ task, updateTask }) {
         <span>{task.text}</span>
       </label>
       <button
+        onClick={() => deleteTask(task.id)}
         className="btn btn-danger"
         style={{ display: isMouseOver ? "inline" : "none" }}
       >
