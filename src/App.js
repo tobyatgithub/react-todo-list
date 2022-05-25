@@ -23,12 +23,16 @@ function App() {
   };
 
   const deleteTask = (id) => {
-    const newTaskList = taskList.filter((task) => {
-      return task.id !== id;
-    });
-    setTaskList(newTaskList);
-    console.log(newTaskList);
+    if (window.confirm("Delete this task?")) {
+      const newTaskList = taskList.filter((task) => {
+        return task.id !== id;
+      });
+      setTaskList(newTaskList);
+    }
   };
+
+  const updateAllTasks = () => {};
+  const deleteAllSelectedTasks = () => {};
 
   return (
     <div className="App">
@@ -39,7 +43,10 @@ function App() {
         updateTask={updateTask}
         deleteTask={deleteTask}
       />
-      <Footer />
+      <Footer
+        updateAllTasks={updateAllTasks}
+        deleteAllSelectedTasks={deleteAllSelectedTasks}
+      />
     </div>
   );
 }
